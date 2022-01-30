@@ -26,18 +26,18 @@ window.addEventListener("DOMContentLoaded", async(e) => {
             const task = doc.data();
 
             tasksContainer.innerHTML += `
-        <div class="card card-body mt-2 border-primary">
-      <h3 class="h5">${task.title}</h3>
-      <p>${task.description}</p>
-      <div>
-        <button class="btn btn-primary btn-delete" data-id="${doc.id}">
-          🗑 Delete
-        </button>
-        <button class="btn btn-secondary btn-edit" data-id="${doc.id}">
-          🖉 Edit
-        </button>
-      </div>
-    </div>`;
+                    <div class="card card-body mt-2 border-primary">
+                        <h3 class="h5">${task.title}</h3>
+                        <p>${task.description}</p>
+                        <div>
+                            <button class="btn btn-primary btn-delete" data-id="${doc.id}">
+                            🗑 Delete
+                            </button>
+                            <button class="btn btn-secondary btn-edit" data-id="${doc.id}">
+                            🖉 Edit
+                            </button>
+                        </div>
+                    </div>`;
         });
 
         const btnsDelete = tasksContainer.querySelectorAll(".btn-delete");
@@ -90,9 +90,10 @@ taskForm.addEventListener("submit", async(e) => {
             id = "";
             taskForm["btn-task-form"].innerText = "Save";
         }
+        document.getElementById("task-description").value = "";
+        document.getElementById("task-title").style = 'background: transparent; border: none; color: white; text-align:center; display: none';
+        description.focus();
 
-        taskForm.reset();
-        title.focus();
     } catch (error) {
         console.log(error);
     }
